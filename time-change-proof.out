@@ -1,0 +1,50 @@
+ПРОТОКОЛ ФУНКЦИОНАЛЬНОЙ ПРОВЕРКИ SUDO
+
+=== BEFORE: исходное состояние ===
+mephiadmin
+2026-10-13 04:33:48 EDT
+               Local time: Tue 2026-10-13 04:33:48 EDT
+           Universal time: Tue 2026-10-13 08:33:48 UTC
+                 RTC time: Tue 2026-10-13 08:33:48
+                Time zone: America/New_York (EDT, -0400)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+
+=== NTP DISABLED ===
+               Local time: Tue 2026-10-13 04:34:15 EDT
+           Universal time: Tue 2026-10-13 08:34:15 UTC
+                 RTC time: Tue 2026-10-13 08:34:15
+                Time zone: America/New_York (EDT, -0400)
+System clock synchronized: yes
+              NTP service: inactive
+          RTC in local TZ: no
+
+=== USER1: BEFORE TIME CHANGE ===
+user1
+uid=1234(user1) gid=1234(user1) groups=1234(user1),1001(students) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+2026-10-13 04:35:22 EDT
+
+=== USER1: SET TIME ===
+sudo /usr/bin/timedatectl set-time "$(date -d '+2 minutes' '+%Y-%m-%d %H:%M:%S')"
+[sudo] password for user1: 
+EXIT CODE: 0
+
+=== USER1: AFTER TIME CHANGE ===
+2026-10-13 04:38:00 EDT
+               Local time: Tue 2026-10-13 04:38:00 EDT
+           Universal time: Tue 2026-10-13 08:38:00 UTC
+                 RTC time: Tue 2026-10-13 08:38:01
+                Time zone: America/New_York (EDT, -0400)
+System clock synchronized: no
+              NTP service: inactive
+          RTC in local TZ: no
+
+=== FINAL: NTP RESTORED ===
+               Local time: Tue 2026-10-13 04:37:59 EDT
+           Universal time: Tue 2026-10-13 08:37:59 UTC
+                 RTC time: Tue 2026-10-13 08:37:59
+                Time zone: America/New_York (EDT, -0400)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no

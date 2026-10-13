@@ -1,0 +1,32 @@
+=== USER ===
+uid=1234(user1) gid=1234(user1) groups=1234(user1),1001(students)
+=== PASSWORD POLICY ===
+Last password change					: Oct 11, 2026
+Password expires					: Jan 09, 2027
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 7
+=== SUID ===
+  File: /home/mephiadmin/bos-lab/cat-suid
+  Size: 40696     	Blocks: 80         IO Block: 4096   regular file
+Device: 252,0	Inode: 8539497     Links: 1
+Access: (4755/-rwsr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2026-10-12 11:16:34.954937636 -0400
+Modify: 2026-10-12 11:08:05.188058223 -0400
+Change: 2026-10-12 11:11:57.496706273 -0400
+ Birth: 2026-10-12 11:08:05.188058223 -0400
+=== CAPABILITIES ===
+/home/mephiadmin/bos-lab/chown-cap cap_chown=ep
+=== SUDOERS ===
+/etc/sudoers: parsed OK
+/etc/sudoers.d/user1-time: parsed OK
+Matching Defaults entries for user1 on mephi-fedora44:
+    !visiblepw, always_set_home, match_group_by_gid, always_query_group_plugin, env_reset, env_keep="COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS", env_keep+="MAIL QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE", env_keep+="LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES", env_keep+="LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY", secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/var/lib/snapd/snap/bin
+
+User user1 may run the following commands on mephi-fedora44:
+    (root) /usr/bin/timedatectl set-time *
+=== SELINUX ===
+Enforcing

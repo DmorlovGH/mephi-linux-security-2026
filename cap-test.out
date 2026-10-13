@@ -1,0 +1,24 @@
+=== Linux Capabilities ===
+/home/mephiadmin/bos-lab/chown-cap cap_chown=ep
+=== Utility permissions ===
+  File: /home/mephiadmin/bos-lab/chown-cap
+  Size: 69984     	Blocks: 144        IO Block: 4096   regular file
+Device: 252,0	Inode: 8539499     Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: ( 1000/mephiadmin)   Gid: ( 1000/mephiadmin)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2026-10-12 11:30:11.034011410 -0400
+Modify: 2026-10-12 11:23:07.989875490 -0400
+Change: 2026-10-12 11:24:34.917857976 -0400
+ Birth: 2026-10-12 11:23:07.989875490 -0400
+=== Test file ownership ===
+  File: /home/mephiadmin/bos-lab/test-cap.txt
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 252,0	Inode: 8539500     Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 1234/   user1)   Gid: ( 1000/mephiadmin)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2026-10-12 11:27:16.579263277 -0400
+Modify: 2026-10-12 11:27:16.579263277 -0400
+Change: 2026-10-12 11:30:11.037011423 -0400
+ Birth: 2026-10-12 11:27:16.579263277 -0400
+=== Current user ===
+uid=1000(mephiadmin) gid=1000(mephiadmin) groups=1000(mephiadmin),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023

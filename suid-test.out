@@ -1,0 +1,14 @@
+=== SUID utility ===
+  File: /home/mephiadmin/bos-lab/cat-suid
+  Size: 40696     	Blocks: 80         IO Block: 4096   regular file
+Device: 252,0	Inode: 8539497     Links: 1
+Access: (4755/-rwsr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2026-10-12 11:16:34.954937636 -0400
+Modify: 2026-10-12 11:08:05.188058223 -0400
+Change: 2026-10-12 11:11:57.496706273 -0400
+ Birth: 2026-10-12 11:08:05.188058223 -0400
+=== SUID permissions ===
+-rwsr-xr-x. 1 root root 40696 Oct 12 11:08 /home/mephiadmin/bos-lab/cat-suid
+=== Privileged read test ===
+Exit code: 0

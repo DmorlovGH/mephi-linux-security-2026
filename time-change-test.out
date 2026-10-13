@@ -1,0 +1,42 @@
+=== Проверка полномочий user1 ===
+Matching Defaults entries for user1 on mephi-fedora44:
+    !visiblepw, always_set_home, match_group_by_gid, always_query_group_plugin, env_reset, env_keep="COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS", env_keep+="MAIL QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE", env_keep+="LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES", env_keep+="LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY", secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/var/lib/snapd/snap/bin
+
+User user1 may run the following commands on mephi-fedora44:
+    (root) /usr/bin/timedatectl set-time *
+=== Правило sudoers ===
+user1 ALL=(root) /usr/bin/timedatectl set-time *
+=== Проверка конфигурации sudoers ===
+/etc/sudoers: parsed OK
+/etc/sudoers.d/user1-time: parsed OK
+=== Состояние времени после восстановления NTP ===
+               Local time: Tue 2026-10-13 04:21:17 EDT
+           Universal time: Tue 2026-10-13 08:21:17 UTC
+                 RTC time: Tue 2026-10-13 08:21:17
+                Time zone: America/New_York (EDT, -0400)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+
+=== Функциональная проверка изменения системного времени ===
+Дата проверки: 2026-10-13
+Пользователь: user1
+Команда:
+sudo /usr/bin/timedatectl set-time "$(date -d '+2 minutes' '+%Y-%m-%d %H:%M:%S')"
+
+Результат:
+Команда завершилась без сообщения об ошибке.
+После выполнения проверены date и timedatectl status.
+Зафиксировано изменённое системное время:
+Tue Oct 13 04:20:23 AM EDT 2026
+System clock synchronized: no
+NTP service: inactive
+
+После завершения эксперимента администратор восстановил NTP.
+Итоговое состояние:
+System clock synchronized: yes
+NTP service: active
+
+Примечание: приведённые результаты перенесены из вывода терминала
+после выполнения эксперимента; исходный вывод не записывался
+непосредственно в данный файл.

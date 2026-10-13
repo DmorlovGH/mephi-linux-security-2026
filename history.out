@@ -1,0 +1,79 @@
+    1  sudo find / -type f -perm -4000 -print 2>/dev/null | tee ~/suid-files.out
+    2  cut /home/mephiadmin/suid-files.out
+    3  cat ~/suid-files.out
+    4  ps -eo pid,ruid,euid,user,comm | awk 'NR==1 || ($2!=0 && $3==0)' | tee ~/suid-processes.out
+    5  sudo kill -TERM 2462
+    6  ls -l ~/suid-files.out ~/suid-processes.out ~/bos-session.log
+    7  mkdir ~/bos-lab
+    8  cd ~/bos-lab
+    9  pwd
+   10  nano ~/bos-lab/test-suid.sh
+   11  nano dnf install y nano
+   12  sudo nano dnf install y nano
+   13  sudo dnf install -y nano
+   14  nano ~/bos-lab/test-suid.sh
+   15  ls -l ~/bos-lab/test-suid.sh
+   16  chmod +x ~/bos-lab/test-suid.sh 
+   17  ls -l ~/bos-lab/test-suid.sh
+   18  ~/bos-lab/test-suid.sh
+   19  sudo chown root:root ~/bos-lab/test-suid.sh
+   20  ls -l ~/bos-lab/test-suid.sh
+   21  sudo chmod u+s ~/bos-lab/test-suid.sh
+   22  ls -l ~/bos-lab/test-suid.sh
+   23  cat ~/bos-lab/test-suid.sh
+   24  ~/bos-lab/test-suid.sh
+   25  id
+   26  ls -l /usr/bin/passwd 
+   27  su - user1
+   28  whoami
+   29  учше
+   30  exit
+   31  command -v script
+   32  sudo dnf install -y util-linux
+   33  sudo dnf provides /usr/bin/script | tail -25
+   34  sudo dnf install -y util-linux-script
+   35  script -a ~/bos-session.log
+   36  ls -lh ~/bos-session.log
+   37  less ~/bos-session.log
+   38  passwd
+   39  exit
+   40  ls -l /usr/bin/cat
+   41  cp /usr/bin/cat ~/bos-lab/cat-suid
+   42  ls -l ~/bos-lab/cat-suid
+   43  ls -l
+   44  sudo chown root:root ~/bos-lab/cat-suid
+   45  ls -l ~/bos-lab/cat-suid
+   46  sudo chmod u+s ~/bos-lab/cat-suid
+   47  ls -l ~/bos-lab/cat-suid
+   48  head -c 1 /etc/shadow
+   49  ~/bos-lab/cat-suid /etc/shadow > /dev/null
+   50  echo "Код завершения: $?"
+   51  {     echo "=== SUID utility ===";     stat ~/bos-lab/cat-suid;     echo "=== SUID permissions ===";     ls -l ~/bos-lab/cat-suid;     echo "=== Privileged read test ===";     ~/bos-lab/cat-suid /etc/shadow > /dev/null;     echo "Exit code: $?"; } | tee ~/bos-lab/suid-test.out
+   52  cp /usr/bin/chown ~/bos-lab/chown-cap
+   53  ls -l ~/bos-lab/chown-cap
+   54  sudo setcap cap_chown+ep ~/bos-lab/chown-cap
+   55  getcap ~/bos-lab/chown-cap
+   56  touch ~/bos-lab/test-cap.txt
+   57  ls -l ~/bos-lab/test-cap.txt
+   58  chown user1 ~/bos-lab/test-cap.txt
+   59  ~/bos-lab/chown-cap user1 ~/bos-lab/test-cap.txt
+   60  ls -l ~/bos-lab/test-cap.txt
+   61  {     echo "=== Linux Capabilities ===";     getcap ~/bos-lab/chown-cap;      echo "=== Utility permissions ===";     stat ~/bos-lab/chown-cap;      echo "=== Test file ownership ===";     stat ~/bos-lab/test-cap.txt;      echo "=== Current user ===";     id; } | tee ~/bos-lab/cap-test.out
+   62  command -v timedatectl
+   63  sudo visudo -f /etc/sudoers.d/user1-time
+   64  sudo visudo -c
+   65  sudo chmod 0440 /etc/sudoers.d/user1-time
+   66  sudo visudo -c
+   67  sudo -l -U user1
+   68  sudo -u user1 sudo -n /usr/bin/timedatectl set-time
+   69  sudo -iu user1
+   70  timedatectl status
+   71  sudo timedatectl set-ntp false
+   72  timedatectl status
+   73  sudo -iu user1
+   74  sudo timedatectl set-ntp true
+   75  timedatectl status 
+   76  {     echo "=== Sudoers configuration ===";     sudo cat /etc/sudoers.d/user1-time;      echo "=== Sudoers validation ===";     sudo visudo -c;      echo "=== User1 permissions ===";     sudo -l -U user1;      echo "=== Time synchronization restored ===";     timedatectl status; } | tee ~/bos-lab/sudo-test.out
+   77  cat ~/bos-lab/sudo-test.out
+   78  ls -lh ~/bos-lab/ ~/suid-files.out ~/suid-processes.out ~/bos-session.log
+   79  history > ~/history.out

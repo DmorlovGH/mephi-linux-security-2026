@@ -1,0 +1,27 @@
+  File: /home/user1
+  Size: 83        	Blocks: 0          IO Block: 4096   directory
+Device: 252,0	Inode: 9579771     Links: 2
+Access: (0700/drwx------)  Uid: ( 1234/   user1)   Gid: ( 1234/   user1)
+Context: unconfined_u:object_r:user_home_dir_t:s0
+Access: 2026-10-12 11:54:11.152916593 -0400
+Modify: 2026-10-11 17:50:33.282906656 -0400
+Change: 2026-10-11 17:50:33.282906656 -0400
+ Birth: 2026-10-11 16:32:17.999358902 -0400
+  File: /home/mephiadmin/bos-lab/cat-suid
+  Size: 40696     	Blocks: 80         IO Block: 4096   regular file
+Device: 252,0	Inode: 8539497     Links: 1
+Access: (4755/-rwsr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2026-10-12 11:16:34.954937636 -0400
+Modify: 2026-10-12 11:08:05.188058223 -0400
+Change: 2026-10-12 11:11:57.496706273 -0400
+ Birth: 2026-10-12 11:08:05.188058223 -0400
+  File: /home/mephiadmin/bos-lab/chown-cap
+  Size: 69984     	Blocks: 144        IO Block: 4096   regular file
+Device: 252,0	Inode: 8539499     Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: ( 1000/mephiadmin)   Gid: ( 1000/mephiadmin)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2026-10-12 11:30:11.034011410 -0400
+Modify: 2026-10-12 11:23:07.989875490 -0400
+Change: 2026-10-12 11:24:34.917857976 -0400
+ Birth: 2026-10-12 11:23:07.989875490 -0400

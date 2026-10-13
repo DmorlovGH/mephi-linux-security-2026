@@ -1,0 +1,19 @@
+=== Sudoers configuration ===
+user1 ALL=(root) /usr/bin/timedatectl set-time *
+=== Sudoers validation ===
+/etc/sudoers: parsed OK
+/etc/sudoers.d/user1-time: parsed OK
+=== User1 permissions ===
+Matching Defaults entries for user1 on mephi-fedora44:
+    !visiblepw, always_set_home, match_group_by_gid, always_query_group_plugin, env_reset, env_keep="COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS", env_keep+="MAIL QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE", env_keep+="LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES", env_keep+="LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY", secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/var/lib/snapd/snap/bin
+
+User user1 may run the following commands on mephi-fedora44:
+    (root) /usr/bin/timedatectl set-time *
+=== Time synchronization restored ===
+               Local time: Mon 2026-10-12 11:59:56 EDT
+           Universal time: Mon 2026-10-12 15:59:56 UTC
+                 RTC time: Mon 2026-10-12 15:59:56
+                Time zone: America/New_York (EDT, -0400)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
